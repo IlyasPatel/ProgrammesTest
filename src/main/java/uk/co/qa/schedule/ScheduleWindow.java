@@ -1,13 +1,13 @@
-package uk.co.qa.availability;
+package uk.co.qa.schedule;
 
 import java.util.Date;
 
-public class AvailabilityWindow {
+public class ScheduleWindow {
 
     private final Date from;
     private final Date to;
 
-    public AvailabilityWindow(Date from, Date to) {
+    public ScheduleWindow(Date from, Date to) {
 
         this.from = from;
         this.to = to;
