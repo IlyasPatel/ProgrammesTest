@@ -15,6 +15,7 @@ Use Cases:
 * An IllegalArgumentException should be thrown if a programme id is not found.
 
 ## Retrieve programmes which are scheduled in the next 3, 7 or 14 days.
+* Usage BbcProgrammeService.findProgrammesScheduled(NumberOfDays.THREE)
 * If there are no programmes available, an empty Map will be returned.
 
 ## Background
