@@ -16,7 +16,7 @@ Use Cases:
 
 ## Retrieve programmes which are scheduled in the next 3, 7 or 14 days.
 * Usage BbcProgrammeService.findProgrammesScheduled(NumberOfDays.THREE)
-* If there are no programmes available, an empty Map will be returned.
+* If there are no programmes scheduled, an empty Map will be returned.
 
 ## Background
 * BbcProgrammeService uses an ScheduleService which is not maintained by our team but has a well defined interface.

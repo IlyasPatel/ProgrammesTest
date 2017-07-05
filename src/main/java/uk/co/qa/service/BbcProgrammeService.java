@@ -40,21 +40,21 @@ public class BbcProgrammeService {
 
     public Map<Long, ScheduleWindow> findProgrammesScheduled(NumberOfDays numberOfDays) {
 
-        Map<Long, ScheduleWindow> programmesAvailable = new HashMap();
+        Map<Long, ScheduleWindow> programmesSchedule = new HashMap();
 
         Set<Long> allProgrammes = programmesDao.findAll();
-        Map<Long, ScheduleWindow> programmeAvailability = scheduleService.getSchedule(allProgrammes);
+        Map<Long, ScheduleWindow> programmesSceduled = scheduleService.getSchedule(allProgrammes);
 
-        for (long id : programmeAvailability.keySet()) {
-            ScheduleWindow availabilityWindow = programmeAvailability.get(id);
-            long dateDiff = getDateDiff(clock.instant(), availabilityWindow.from());
+        for (long id : programmesSceduled.keySet()) {
+            ScheduleWindow scheduleWindow = programmesSceduled.get(id);
+            long dateDiff = getDateDiff(clock.instant(), scheduleWindow.from());
 
             if (dateDiff >= 0 && dateDiff < numberOfDays.getNumberOfDays()) {
-                programmesAvailable.put(id, availabilityWindow);
+                programmesSchedule.put(id, scheduleWindow);
             }
         }
 
-        return programmesAvailable;
+        return programmesSchedule;
     }
 
     private long getDateDiff(Instant date1, Date date2) {
