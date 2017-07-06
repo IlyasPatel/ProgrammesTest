@@ -1,4 +1,4 @@
-package uk.co.qa.schedule;
+package uk.co.qa.domain;
 
 import java.util.Date;
 

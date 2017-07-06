@@ -2,7 +2,7 @@ package uk.co.qa.service;
 
 import enums.NumberOfDays;
 import programmes.dao.ProgrammesDao;
-import uk.co.qa.schedule.ScheduleWindow;
+import uk.co.qa.domain.ScheduleWindow;
 import uk.co.qa.schedule.ScheduleService;
 import uk.co.qa.domain.Programme;
 
@@ -43,10 +43,10 @@ public class BbcProgrammeService {
         Map<Long, ScheduleWindow> programmesSchedule = new HashMap();
 
         Set<Long> allProgrammes = programmesDao.findAll();
-        Map<Long, ScheduleWindow> programmesSceduled = scheduleService.getSchedule(allProgrammes);
+        Map<Long, ScheduleWindow> programmesScheduled = scheduleService.getSchedule(allProgrammes);
 
-        for (long id : programmesSceduled.keySet()) {
-            ScheduleWindow scheduleWindow = programmesSceduled.get(id);
+        for (long id : programmesScheduled.keySet()) {
+            ScheduleWindow scheduleWindow = programmesScheduled.get(id);
             long dateDiff = getDateDiff(clock.instant(), scheduleWindow.from());
 
             if (dateDiff >= 0 && dateDiff < numberOfDays.getNumberOfDays()) {
