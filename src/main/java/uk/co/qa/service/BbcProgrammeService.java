@@ -43,7 +43,7 @@ public class BbcProgrammeService {
         Map<Long, ScheduleWindow> programmesSchedule = new HashMap();
 
         Set<Integer> allProgrammes = programmesDao.findAll();
-        Map<Long, ScheduleWindow> programmesScheduled = scheduleService.getSchedule(allProgrammes);
+        Map<Integer, ScheduleWindow> programmesScheduled = scheduleService.getSchedule(allProgrammes);
 
         for (long id : programmesScheduled.keySet()) {
             ScheduleWindow scheduleWindow = programmesScheduled.get(id);
