@@ -5,7 +5,7 @@ import uk.co.qa.domain.Programme;
 import java.util.Set;
 
 public interface ProgrammesDao {
-    Programme find(Long programmeId);
+    Programme find(int programmeId);
 
-    Set<Long> findAll();
+    Set<Integer> findAll();
 }

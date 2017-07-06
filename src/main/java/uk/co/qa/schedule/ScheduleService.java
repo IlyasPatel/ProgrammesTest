@@ -7,6 +7,6 @@ import java.util.Set;
 
 public interface ScheduleService {
 
-    Map<Long, ScheduleWindow> getSchedule(Set<Long> allProgrammes) ;
+    Map<Integer, ScheduleWindow> getSchedule(Set<Integer> allProgrammes) ;
 
 }

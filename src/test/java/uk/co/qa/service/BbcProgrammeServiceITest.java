@@ -28,9 +28,9 @@ public class BbcProgrammeServiceITest {
     @Before
     public void setUp() {
 
-        Programme doctorWho = new Programme(1L, "Doctor Who");
-        Programme eastenders = new Programme(2L, "Eastenders");
-        Programme matchOfTheDay1 = new Programme(3L, "Match of the Day 1");
+        Programme doctorWho = new Programme(1, "Doctor Who");
+        Programme eastenders = new Programme(2, "Eastenders");
+        Programme matchOfTheDay1 = new Programme(3, "Match of the Day 1");
 
         ScheduleWindow doctorWhoSW = new ScheduleWindow(getDate(2017, 7, 1), getDate(2017, 8, 1));
         ScheduleWindow eastendersSW = new ScheduleWindow(getDate(2017, 7, 2), getDate(2017, 8, 1));
@@ -54,9 +54,9 @@ public class BbcProgrammeServiceITest {
     @Test
     public void when_i_search_for_a_programme_with_valid_id_then_programme_is_found() {
 
-        Programme programme = sut.find(1L);
+        Programme programme = sut.find(1);
 
-        assertThat(programme.getId(), is(equalTo(1L)));
+        assertThat(programme.getId(), is(equalTo(1)));
         assertThat(programme.getName(), is(equalTo("Doctor Who")));
     }
 

@@ -1,0 +1,33 @@
+package uk.co.qa.schedule;
+
+import uk.co.qa.domain.Programme;
+import uk.co.qa.domain.ScheduleWindow;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class ScheduleServiceImpl implements ScheduleService {
+
+    private Map<Integer, ScheduleWindow> availabilityWindow;
+
+    public ScheduleServiceImpl() {
+        this.availabilityWindow = new HashMap<>();
+    }
+
+    public void addProgrammeAvailability(Programme programme, ScheduleWindow availabilityWindow) {
+        this.availabilityWindow.put(programme.getId(), availabilityWindow);
+    }
+
+    @Override
+    public Map<Integer, ScheduleWindow> getSchedule(Set<Integer> allProgrammes) {
+        Map<Integer, ScheduleWindow> programmeAvailability = new HashMap<>();
+
+        for (int programmeId : allProgrammes) {
+            programmeAvailability.put(programmeId, this.availabilityWindow.get(programmeId));
+        }
+
+        return programmeAvailability;
+    }
+
+}

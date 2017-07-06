@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class InMemoryProgrammesDao implements ProgrammesDao {
 
-    private Map<Long, Programme> programmes;
+    private Map<Integer, Programme> programmes;
 
     public InMemoryProgrammesDao() {
         this.programmes = new HashMap<>();
@@ -19,12 +19,12 @@ public class InMemoryProgrammesDao implements ProgrammesDao {
     }
 
     @Override
-    public Programme find(Long programmeId) {
+    public Programme find(int programmeId) {
         return programmes.get(programmeId);
     }
 
     @Override
-    public Set<Long> findAll() {
+    public Set<Integer> findAll() {
         return programmes.keySet();
     }
 }

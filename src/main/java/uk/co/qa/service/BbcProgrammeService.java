@@ -27,7 +27,7 @@ public class BbcProgrammeService {
         this.clock = clock;
     }
 
-    public Programme find(long programmeId) {
+    public Programme find(int programmeId) {
 
         Programme programme = programmesDao.find(programmeId);
 
@@ -42,7 +42,7 @@ public class BbcProgrammeService {
 
         Map<Long, ScheduleWindow> programmesSchedule = new HashMap();
 
-        Set<Long> allProgrammes = programmesDao.findAll();
+        Set<Integer> allProgrammes = programmesDao.findAll();
         Map<Long, ScheduleWindow> programmesScheduled = scheduleService.getSchedule(allProgrammes);
 
         for (long id : programmesScheduled.keySet()) {
